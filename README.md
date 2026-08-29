@@ -1,6 +1,6 @@
 # ⚡ Batch Scripts Collection
 
-Collection of Batch Scripts (`.bat`) for automation routine tasks разработки в среде Windows.
+Collection of Batch Scripts (`.bat`) for automation routine tasks development in the environment Windows.
 
 ---
 
