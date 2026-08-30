@@ -4,7 +4,7 @@ Collection of Batch Scripts (`.bat`) for automation routine tasks development in
 
 ---
 
-## 🚀 Доступные скрипты
+## 🚀 Available Scripts
 
 ### 1. `push.bat` — Авто-пуш в Git
 
