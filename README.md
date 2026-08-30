@@ -6,7 +6,7 @@ Collection of Batch Scripts (`.bat`) for automation routine tasks development in
 
 ## 🚀 Available Scripts
 
-### 1. `push.bat` — Авто-пуш в Git
+### 1. `push.bat` — Auto-push in Git
 
 Скрипт создан для того, чтобы не вводить команды `git add`, `git commit` и `git push` вручную по многу раз в процессе активной разработки проекта.
 
