@@ -42,6 +42,20 @@ git branch -M main
 set /p REPO_URL="Введите URL репозитория на GitHub: "
 git remote add origin %REPO_URL%
 
+echо.
+echo Отправить первый коммит прямо сейчас? (Y/N)
+
+choice /c YN /n /m "Ваш выбор: "
+
+if errorLevel 2 goto menu
+
+git add .
+git commit -m "First Commit"
+git push -u origin main
+echo.
+echo [!] Репозиторий успешно привязан!
+pause
+goto menu
 
 :exit
 cls
