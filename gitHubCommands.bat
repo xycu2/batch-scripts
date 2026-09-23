@@ -20,13 +20,15 @@ if errorLevel 1 goto quick_push
 :quick_push
 cls
 echo === БЫСТРЫЙ PUSH ===
-echo git add
-echo git commit -m
-echo git push
+git add .
+set /p MSG="Введите текст коммита: "
 
-@REM  Тут потом будут команды
+if "%MSG%"=="" set MSG="Auto-commit"
+
+git commit -m "%MSG%"
+git push
 echo.
-echo [] Все успешно отправлено на GitHub
+echo [!] Все успешно отправлено на GitHub
 pause
 goto menu
 
