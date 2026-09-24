@@ -18,7 +18,7 @@ if errorLevel 3 goto exit
 if errorLevel 2 goto init
 if errorLevel 1 goto quick_push
 
-
+:: Отправка на GitHub(push)
 :quick_push
 cls
 echo === БЫСТРЫЙ PUSH ===
@@ -42,9 +42,18 @@ echo [!] Все успешно отправлено на GitHub
 pause
 goto menu
 
+:: Иницилизация репозитория(init) 
 :init
 cls
 echo === Иницилизация Репозитория ===
+
+echo.
+echo Иницилизировать репозиторий(1 раз) (Y/N)?
+
+choice /c YN /n /m "Ваш выбор: "
+
+if errorLevel 2 goto menu
+
 git init
 git branch -M main
 set /p REPO_URL="Введите URL репозитория на GitHub: "
@@ -65,6 +74,7 @@ echo [!] Репозиторий успешно привязан!
 pause
 goto menu
 
+:: Выход
 :exit
 cls
 echo До свидания!
