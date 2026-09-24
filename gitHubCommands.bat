@@ -22,6 +22,14 @@ if errorLevel 1 goto quick_push
 :quick_push
 cls
 echo === БЫСТРЫЙ PUSH ===
+
+echo.
+echo Отправить на GitHub? (Y/N)
+
+choice /c YN /n /m "Ваш выбор: "
+
+if errorLevel 2 goto menu
+
 git add .
 set /p MSG="Введите текст коммита: "
 
@@ -60,5 +68,5 @@ goto menu
 :exit
 cls
 echo До свидания!
-timeout /t 2 > nul
+C:\Windows\System32\timeout.exe /t 2 > nul
 exit
