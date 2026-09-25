@@ -10,13 +10,43 @@ echo    GitHub Helpers
 echo ========================
 echo [1] Быстрый push (git add + commit + push)
 echo [2] Иницилизация Репозитория (Запускаем 1 раз)
+echo [3] Создание ветки и переходим на нее
 echo [0] выход
 
-choice /c 120 /n /m "Выберите действие (1-4, 0): "
+choice /c 1230 /n /m "Выберите действие (1-4, 0): "
 
-if errorLevel 3 goto exit
+if errorLevel 4 goto exit
+if errorLevel 3 goto create_branch
 if errorLevel 2 goto init
 if errorLevel 1 goto quick_push
+
+:: Создание ветки и сразу переходим в нее
+:create_branch
+cls
+echo === СОЗДАНИЕ ВЕТКИ (ПЕРЕКЛЮЧАЕМСЯ НА НЕЕ) ===
+
+echo.
+echo Создать новую ветку и перейти в нее? (Y/N)
+
+choice /c YN /n /m "Ваш выбор: "
+
+if errorLevel 2 goto menu
+
+set branch_name=
+set /p branch_name="Введите название новой ветки: "
+
+if "%branch_name%"=="" (
+  echo [!] Имя ветки не может быть пустым!
+  pause
+  goto menu
+)
+
+git switch -c "%branch_name%"
+
+echo.
+echo [!] Вы успешно перешли в созданную ветку
+pause 
+goto menu
 
 :: Отправка на GitHub(push)
 :quick_push
