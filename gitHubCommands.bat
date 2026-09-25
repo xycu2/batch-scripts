@@ -10,13 +10,15 @@ echo    GitHub Helpers
 echo ========================
 echo [1] Быстрый push (git add + commit + push)
 echo [2] Иницилизация Репозитория (Запускаем 1 раз)
-echo [3] Создание ветки и переходим на нее
+echo [3] Создание ветки (Переходим в нее)
+echo [4] Создание ветки (Остаемся в текущей)
 echo [0] выход
 
-choice /c 1230 /n /m "Выберите действие (1-4, 0): "
+choice /c 12340 /n /m "Выберите действие (1-4, 0): "
 
-if errorLevel 4 goto exit
-if errorLevel 3 goto create_branch
+if errorLevel 5 goto exit
+if errorLevel 4 goto create_branch_only
+if errorLevel 3 goto create_and_switch
 if errorLevel 2 goto init
 if errorLevel 1 goto quick_push
 
