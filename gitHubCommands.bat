@@ -21,7 +21,7 @@ if errorLevel 2 goto init
 if errorLevel 1 goto quick_push
 
 :: Создание ветки и сразу переходим в нее
-:create_branch
+:create_and_switch
 cls
 echo === СОЗДАНИЕ ВЕТКИ (ПЕРЕКЛЮЧАЕМСЯ НА НЕЕ) ===
 
