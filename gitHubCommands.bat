@@ -20,6 +20,35 @@ if errorLevel 3 goto create_branch
 if errorLevel 2 goto init
 if errorLevel 1 goto quick_push
 
+:: Создание ветки (остаемся в текущей)
+:create_branch_only
+cls
+echo === СОЗДАНИЕ ВЕТКИ (ОСТАЕМСЯ В ТЕКУЩЕЙ) ===
+
+echo.
+echo Вы хотите создать ветку и остаться в текущей? (Y/N)
+
+choice /c YN /n /m "Ваш выбор: "
+
+if errorLevel 2 goto menu
+
+set branch_name=
+set /p branch_name="Введите название новой ветки: "
+
+if "%branch_name%"=="" (
+  echo [!] Название ветки не может быть пустым!
+  pause
+  goto menu
+)
+
+git branch "%branch_name%"
+
+echo.
+echo [!] Ветка "%branch_name%" успешно создана! Вы остались в текущей ветке.
+echo Чтобы перейти на нее выполните: git switch "%branch_name%"
+pause
+goto menu
+
 :: Создание ветки и сразу переходим в нее
 :create_and_switch
 cls
